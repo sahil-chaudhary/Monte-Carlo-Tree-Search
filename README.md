@@ -29,7 +29,7 @@ MCTS consists of four main "operators" :
     Selection correpondes to choosing a move at a node or an action in a decision tree, and the choice is based on the upper confidence bound for each possible move or action, which is a function of the current estimated value.
 
     Start from root R and select successive child nodes untill a leaf node L is reached. The root is the current game state and a leaf is any node that has a potential child from which no simulation has yet been started. The selection below says more about a way of biasing choice of child nodes that lets the game tree expand towards the most promising moves, which is the essence of Monte Carlo Tree search.
-    
+
 2. Expansion: 
     Expansion corresponds to an outcome node in a decision tree, which is an opponent's move in a game and it is modeled by a probability distribution that is a function of the state reached after the chosen move or action.
 
@@ -45,6 +45,22 @@ MCTS consists of four main "operators" :
 
     Basically, use the result of the playout to update information in the nodes on the path from C to R.
 
+## Exploration and Exploitation:
+
+The main difficult in selecting child nodes is maintaining some balance between the exploitation and exploration. Formula associated with balancing the tradeoffs between exploration and exploitation is 
+```math
+\begin{align}
+    UCB&=E[win|i]+c\sqrt{2\frac{ln(N_i)}{n_i}}\\
+    &=\frac{w_i}{n_i}+c\sqrt{2\frac{ln(N_i)}{n_i}}
+\end{align}
+```
+where,
+$w_i$ is the number of wins for the node cosidered after the $i^{th}$ move,
+$n_i$ is the number of simulations for the node considered after the $i^{th}$ move,
+$N_i$ is the total number of simulations after the $i^{th}$ move run by the parent node of the one considered,
+$c$ is the exploration parameter.
+
+The term $E[win|i]$ corresponds to exploitation and $c\sqrt{2\frac{ln(N_i)}{n_i}}$ corresponds to exploration.
 ## Papers to be followed
 1. https://arxiv.org/pdf/2004.11410
 2. https://arxiv.org/pdf/1712.01815
