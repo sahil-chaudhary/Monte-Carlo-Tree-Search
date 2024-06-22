@@ -17,9 +17,19 @@ Projects, which I have personally tried and documented are listed below:
 
 The algorithm deals sequential decision making under uncertainity, which can be modeled using Markov decision process. In this setting, the objective is to maximize an expected reward or minimize the error function over a finite time, given the starting state.
 
-In a game setting like chess, tic tac toe or go, a simple version would be to maximize the probability of computer winning from the beginning of the game. Ideally, an optimal strategy should take care of every possiblity but for the games which were suggested early, you can think the decision tree would go exponentially.
+In a game setting like chess, tic tac toe or go, a simple version would be to maximize the probability of computer winning from the beginning of the game. Ideally, an optimal strategy should take care of every possiblity but for the games which were suggested earlier, you can think the decision tree would grow exponentially.
 
 Thus, the idea is to try to perform an intelligent and calculated search using randomization and game simulation. Algorithms like alpha-beta favors more exploitation which misses the maximum possible reward, which is something we want to avoid. MCTS is a very clever algorithm which favors not only exploitation of the states but also lets the computer explore.  
+
+MCTS consists of four main "operators" :
+1. Selection :
+    Selection correpondes to choosing a move at a node or an action in a decision tree, and the choice is based on the upper confidence bound for each possible move or action, which is a function of the current estimated value.
+2. Expansion: 
+    Expansion corresponds to an outcome node in a decision tree, which is an opponent's move in a game and it is modeled by a probability distribution that is a function of the state reached after the chosen move or action.
+3. Simulation:
+    Simulation corresponds to returning the estimated value at a given node, which could correspond to the actual end of the horizon or game, or simply to a point where the current estimation may be considered sufficiently accurate so as not to requre further simulation.
+4. Backdrop
+    Backdrop corresponds to the backwards dyanmic programming algorithm employed in decision trees and MDPS.
 
 ## Papers to be followed
 1. https://arxiv.org/pdf/2004.11410
