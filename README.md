@@ -21,15 +21,29 @@ In a game setting like chess, tic tac toe or go, a simple version would be to ma
 
 Thus, the idea is to try to perform an intelligent and calculated search using randomization and game simulation. Algorithms like alpha-beta favors more exploitation which misses the maximum possible reward, which is something we want to avoid. MCTS is a very clever algorithm which favors not only exploitation of the states but also lets the computer explore.  
 
+## Principle of Operation:
+
+The focus of MCTS is on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. 
 MCTS consists of four main "operators" :
 1. Selection :
     Selection correpondes to choosing a move at a node or an action in a decision tree, and the choice is based on the upper confidence bound for each possible move or action, which is a function of the current estimated value.
+
+    Start from root R and select successive child nodes untill a leaf node L is reached. The root is the current game state and a leaf is any node that has a potential child from which no simulation has yet been started. The selection below says more about a way of biasing choice of child nodes that lets the game tree expand towards the most promising moves, which is the essence of Monte Carlo Tree search.
+    
 2. Expansion: 
     Expansion corresponds to an outcome node in a decision tree, which is an opponent's move in a game and it is modeled by a probability distribution that is a function of the state reached after the chosen move or action.
+
+    Unless L ends the game decisively for either player, create one child nodes and choose node C from one of them. Child nodes are any valid moves from teh game position defined by L.
+
 3. Simulation:
     Simulation corresponds to returning the estimated value at a given node, which could correspond to the actual end of the horizon or game, or simply to a point where the current estimation may be considered sufficiently accurate so as not to requre further simulation.
+
+    Complete one random playout from node C. This step is sometimes also called playout or rollout. A playout may be as simple as choosing uniform random moves until the game is decided.
+
 4. Backdrop
     Backdrop corresponds to the backwards dyanmic programming algorithm employed in decision trees and MDPS.
+
+    Basically, use the result of the playout to update information in the nodes on the path from C to R.
 
 ## Papers to be followed
 1. https://arxiv.org/pdf/2004.11410
