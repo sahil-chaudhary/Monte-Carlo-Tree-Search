@@ -11,7 +11,15 @@ MCTS is a widely used approach in solving sequential decision making problems an
 This repo conists the projects which widely uses the idea of MCTS to solve a specific problem. This README file would give you a generic overview towards Monte Carlo Tree Search algorithm and I have tried to organize my file as systematic as possible. You can visit each of the folders and you will find a readme for the same project so that you would find it easier to understand the project.
 Projects, which I have personally tried and documented are listed below:
 1. Improving LLMs Reasoning abilities using Monte Carlo Tree Self-refine
-2. AlphaGo 
+2. AlphaGo
+
+## Introduction
+
+The algorithm deals sequential decision making under uncertainity, which can be modeled using Markov decision process. In this setting, the objective is to maximize an expected reward or minimize the error function over a finite time, given the starting state.
+
+In a game setting like chess, tic tac toe or go, a simple version would be to maximize the probability of computer winning from the beginning of the game. Ideally, an optimal strategy should take care of every possiblity but for the games which were suggested early, you can think the decision tree would go exponentially.
+
+Thus, the idea is to try to perform an intelligent and calculated search using randomization and game simulation. Algorithms like alpha-beta favors more exploitation which misses the maximum possible reward, which is something we want to avoid. MCTS is a very clever algorithm which favors not only exploitation of the states but also lets the computer explore.  
 
 ## Papers to be followed
 1. https://arxiv.org/pdf/2004.11410
