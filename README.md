@@ -56,18 +56,33 @@ The main difficult in selecting child nodes is maintaining some balance between 
 ```
 where,
 $w_i$ is the number of wins for the node cosidered after the $i^{th}$ move,
+
 $n_i$ is the number of simulations for the node considered after the $i^{th}$ move,
+
 $N_i$ is the total number of simulations after the $i^{th}$ move run by the parent node of the one considered,
+
 $c$ is the exploration parameter.
 
 The term $E[win|i]$ corresponds to exploitation and $c\sqrt{2\frac{ln(N_i)}{n_i}}$ corresponds to exploration.
-## Papers to be followed
+
+At selection, the child is selected which has maximum UCB value.
+
+At beginning when no node is explored, it makes a random selection because there is no data available to make a more educated selection. Other operators are supposed to be used in the same manner.
+
+## Experiments: 
+To examine its performance, we experimented with tic-tac-toe of various dimensions by competing MCTS against alpha beta pruning method and minmax method.
+
+
+## Conclusions: 
+MCTS has its own advantages and disadvantages but one could not avoid its significance in various streams. In cases like game simulation, robotics, text generation, Monte carlo tree search has shown very promising results. To understand its signifiance at a deeper level and find its application in other fields, I have try to do experiments around this algorithm. You could visit other projects inside this repo and understands its significance in each projects.
+
+## Papers followed:
 1. https://arxiv.org/pdf/2004.11410
 2. https://arxiv.org/pdf/1712.01815
 3. https://arxiv.org/pdf/2103.04931
 4. https://sites.ualberta.ca/~szepesva/papers/CACM-MCTS.pdf
 
-## Blogs and other Resources
+## Blogs and other Resources:
 1. https://cs.brown.edu/people/gdk/pubs/analysis_mcts.pdf
 2. https://papers.nips.cc/paper/2021/file/9b0ead00a217ea2c12e06a72eec4923f-Paper.pdf
 3. https://en.wikipedia.org/wiki/Monte_Carlo_tree_search
