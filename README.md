@@ -1,5 +1,6 @@
 ## Contributors
 1. Sahil Chaudhary
+2. Balaji R
 
 ## Abstract
 Monte Carlo Tree Search(MCTS) is a general approach to solving sequential decision making problems under uncertainty using stochastic(Monte Carlo) simulation. MCTS is famous for its role in Google DeepMind's Alphazero, the successor to AlphaGo.
