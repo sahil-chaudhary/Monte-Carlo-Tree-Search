@@ -22,17 +22,26 @@ Nodes on, this tree represent different versions of answers to same question whi
 One has to note self-ecaluation is driven by model's self reward capability.
 
 ### Notations used
-P: The problem instance being addressed
-A: The set of nodes, each representing potential anwer to P
-M: The set of actions available at each node representing the possible self refine modifications to an answer
-R: A function that samples self rewards for nodes based on the quality and effectiveness of the modifications
+```P```: The problem instance being addressed
+
+```A```: The set of nodes, each representing potential anwer to P
+
+```M```: The set of actions available at each node representing the possible self refine modifications to an answer
+
+```R```: A function that samples self rewards for nodes based on the quality and effectiveness of the modifications
+
 ```R_a```: A set that stores all self-rewards sampling results of node a with self-rewards function R
-T: A function determining the termination of the search process based on the criteria specified
+
+```T```: A function determining the termination of the search process based on the criteria specified
+
 
 Functions:
 Q(a): A value function estimating the worth of an answer node a(using self-reward model)
+
 U(a): The upper confidence bound for the Q value of node a to balance between exploitation and exploration
+
 N(a): The total number of visits to node a, used to calculate its UCB value and asses exploration and exploitation.
+
 
 ## Papers to follow
 1. https://arxiv.org/pdf/2303.17651(self refine)
