@@ -54,17 +54,17 @@ The algorithm performance on any model is based on the following conditions:
 
 Post sampling, the Q value of a is calculated using
 ```
-\begin{align}
+\begin{align*}
   Q(a)=\frac{1}{2}\left(\min R_a + \frac{1}{|R_a|}\sum_{i=1}^{|R_a|}R_a^i\right)
-\end{align}
+\end{align*}
 ```
 where Q(a) is the quality of the answers.
 
 After all leaf nodes reward value sampling and Q value update are completed, we will transport this change to its parents and ancestor nodes. During this update process, if the Q value of any children(a) for a node a changes, the Q value of a is updated to 
 ```
-\begin{align}
+\begin{align*}
 Q'(a)=\frac{1}{2}\left(Q(a)+\max_{i\in children(a)Q(i)}\right)
-\end{align}
+\end{align*}
 ```
 where Q'(a) is just the updated Q value for node a.
 
@@ -72,9 +72,9 @@ where Q'(a) is just the updated Q value for node a.
 Exploration and exploitation is balanced using the formula,
 
 ```
-\begin{align}
+\begin{align*}
 UCT_a=Q(a)+c\sqrt(\frac{ln N(Father(a))+1}{N(a)+\epsilon})
-\end{align}
+\end{align*}
 ```
 
 ## Evaluation
