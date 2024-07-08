@@ -63,7 +63,7 @@ where Q(a) is the quality of the answers.
 After all leaf nodes reward value sampling and Q value update are completed, we will transport this change to its parents and ancestor nodes. During this update process, if the Q value of any children(a) for a node a changes, the Q value of a is updated to 
 ```math
 \begin{align}
-Q'(a)=\frac{1}{2}\left(Q(a)+\max_{i\in {children(a)} Q(i)}\right)
+Q'(a)=\frac{1}{2}\left(Q(a)+\max_{{i\in {children(a)}} Q(i)}\right)
 \end{align}
 ```
 where Q'(a) is just the updated Q value for node a.
