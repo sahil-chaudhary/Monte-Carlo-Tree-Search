@@ -1,57 +1,12 @@
-# MCTSr: Mathematic as a Blackbox for LLM
+## Monte Carlo Tree Search for LLMs
 
-## Envoirment
+## Credits and Copyrights
+The work is inspired from the work done by Di Zhang et. al in https://github.com/trotsky1997/MathBlackBox . The repo had python files which demostrated their work. The programs were not well managed and results were hardly reproducible for us(we suffered from multi processing issues because of poor threading and device compatiblity). Fortunately, @puffy310 was working on conversion of this repo into a single jupyter notebook to make sense of the paper. Although, the jupyter notebook was also flawed and had some issues which we corrected in this repo and tried to put instructions and comments so that people can reproduce the results in the paper and make commercial use of it by creating a pipeline in their AI systems.
 
-### Server
-We need VLLM or other Openai compatible method.
-```
-pip install vllm
-```
-### Clients
-We need Huggingface toolkit and Openai for inference.
-```
-pip install datasets transformers openai
-```
+The work is still in progress and we would share our results soon.
 
-## Usage
+Contributors:
+1. Sahil Chaudhary
+2. Balaji R (https://github.com/blackscreen-whitetext)
 
-The script relies on Slurm, If you run it on non-slurm environments,
-
-Just use VLLM to create a openai compatible server, and insert to 'server.csv'
-
-```
-IP,PORT,MODEL_NAME
-```
-
-If you run it on slurm environment, change the `partition name` to your own partition in `make_n_server.py`
-
-then, you can run the `run_with_earlystopping.py` for datasets.
-
-```
-python run_with_earlystopping.py MODEL_NAME DATA_DIR_NAME
-```
-
-### Support Datasets
-
-datasets were given by the first part of `DATA_DIR_NAME` arguments, like ` gsm8k-llama3-8b-new-mcts-8` for `gsm8k` , can selected in,
-
-```
-        'gsm8k-llama3-8b-new-mcts-8',
-         'gsmhard-llama3-8b-new-mcts-8',
-         'olympiadbench-llama3-8b-new-mcts-8',
-         'GAIC-llama3-8b-new-mcts-8',
-         'MATH-llama3-8b-new-mcts-8',
-         'AIME-llama3-8b-mcts-2'
-```
-
-Using `run_olympics.py` to run all of them.
-
-Alert: That would consume a long time.
-
-## Disclaimer
-
-This project was still in a very early stage for explore, pay attentions for the algorithm's output, and do not deploying it to real-world product without fully test.
-
-## Read More
-
-https://arxiv.org/abs/2406.07394
+## Abstract
